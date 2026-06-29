@@ -90,16 +90,3 @@ Quality will be measured. A hand-written gold set of question and ground-truth p
 - **Context precision and recall:** did retrieval surface the right chunks?
 
 > _Results table to be added once the eval harness is built (T6)._
-
-## Roadmap
-
-- [ ] **T1**, repo + skeleton, stubbed end-to-end path, tracing wired
-- [ ] **T2**, ingestion: load, clean, chunk with metadata, persist to Chroma
-- [ ] **T3**, baseline retrieval (top-k)
-- [ ] **T4**, grounded answering + citations + refusal on out-of-corpus questions
-- [ ] **T5**, gold evaluation set
-- [ ] **T6**, RAGAS evaluation run
-- [ ] **T7**, iterate on retrieval using the metrics, one variable at a time
-- [ ] **T8**, package & document
-
-**Stretch:** hybrid search (BM25 + dense), reranking, Pinecone swap, Graph RAG.
