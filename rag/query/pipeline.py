@@ -1,6 +1,6 @@
 
 
-class QueryPipeline():
+class QueryPipeline:
     """
     Defines the Query pipeline from embedding the query to retrieving top-k values/documents and citations to answer.
     """
