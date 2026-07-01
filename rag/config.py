@@ -5,11 +5,13 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 class Settings(BaseSettings):
 
-    # LLM    
+    # API KEYS    
     OPENAI_API_KEY: str
 
     # LANGCHAIN
     
+    # CONFIG
+    MODEL_NAME: str
     
     
-    model_config = SettingsConfigDict(env_file=".env", env_prefix="config_")
+    model_config = SettingsConfigDict(env_file=".env")
