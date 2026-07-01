@@ -1,4 +1,4 @@
-
+from langsmith import traceable 
 
 class IngestionPipeline:
     """
@@ -7,9 +7,10 @@ class IngestionPipeline:
     def __init__(self):
         pass
     
+    @traceable(name="Pipeline Ingestion")
     def ingest(self):
         """Ingests documents and stores them in vector database."""
-        pass
+        return "Documents will be ingested !"
         
         
     

@@ -1,4 +1,4 @@
-
+from langsmith import traceable 
 
 class QueryPipeline:
     """
@@ -7,6 +7,7 @@ class QueryPipeline:
     def __init__(self):
         pass
     
+    @traceable(name="Pipeline Answer")
     def answer(self, qst)-> dict:
         """Answers a question based on documents
         
