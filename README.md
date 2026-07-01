@@ -75,7 +75,8 @@ grounded-rag-qa/
 
 ### Run the tests
 
-> Still working on skeleton...
+Run `pytest` to check test cases.
+> Current ones are placeholders and just check stubbed hardcoded answers 
 
 ## Configuration
 
