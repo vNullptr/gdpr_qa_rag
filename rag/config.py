@@ -9,8 +9,6 @@ class Settings(BaseSettings):
     OPENAI_API_KEY: str
 
     # LANGCHAIN
-    LANGCHAIN_API_KEY: str
-    LANGCHAIN_PROJECT: str
     
     
     
