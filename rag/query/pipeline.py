@@ -7,7 +7,7 @@ class QueryPipeline:
     def __init__(self):
         pass
     
-    def answer(self)-> tuple[str ,list[str]]:
+    def answer(self, qst)-> dict:
         """Answers a question based on documents
         
         Returns:
@@ -16,4 +16,4 @@ class QueryPipeline:
         citations: list[str] = []
         answer: str = ""
         
-        return (answer, citations)
+        return {"answer":answer, "citations":citations}
