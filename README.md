@@ -58,8 +58,9 @@ ingestion (batch)            query (live)
 grounded-rag-qa/
   rag/
     config.py          # typed Settings (pydantic-settings)
-    ingestion/         # batch: load, chunk, embed, write
+    ingestion/         # batch: load, chunk.
     query/             # retrieve + answer logic (pipeline.py)
+    shared/            # shared usage : embedding, db write, db read
   api/                 # FastAPI app, thin wrapper over rag.query
   eval/                # gold question set + RAGAS scripts
   tests/               # pytest
