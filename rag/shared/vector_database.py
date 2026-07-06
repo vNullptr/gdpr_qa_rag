@@ -8,10 +8,10 @@ class VectorDatabase:
     Creates a ChromaDB Connection/Instance
     """
     def __init__(self):
-        self.settings = Settings()
+        settings = Settings()
         self.__instance = Chroma(
-            collection_name=self.settings.CHROMA_COLLECTION_NAME,
-            embedding_function=OpenAIEmbeddings(model=self.settings.EMBEDDING_MODEL, api_key=self.settings.OPENAI_API_KEY),
+            collection_name=settings.CHROMA_COLLECTION_NAME,
+            embedding_function=OpenAIEmbeddings(model=settings.EMBEDDING_MODEL, api_key=settings.OPENAI_API_KEY),
             persist_directory="./vector_database"
         )
             
