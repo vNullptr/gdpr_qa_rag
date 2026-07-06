@@ -1,6 +1,7 @@
 from langchain_chroma import Chroma
 from langchain_openai import OpenAIEmbeddings
 from rag.config import Settings
+from rag.shared.embedding import EmbeddingProvider
 from uuid import uuid4
 
 class VectorDatabase:
@@ -9,9 +10,11 @@ class VectorDatabase:
     """
     def __init__(self):
         settings = Settings()
+        embedding_provider = EmbeddingProvider()
+        
         self.__instance = Chroma(
             collection_name=settings.CHROMA_COLLECTION_NAME,
-            embedding_function=OpenAIEmbeddings(model=settings.EMBEDDING_MODEL, api_key=settings.OPENAI_API_KEY),
+            embedding_function=embedding_provider.embedding_function,
             persist_directory="./vector_database"
         )
             
