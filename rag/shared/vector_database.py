@@ -1,5 +1,4 @@
 from langchain_chroma import Chroma
-from langchain_openai import OpenAIEmbeddings
 from rag.config import Settings
 from rag.shared.embedding import EmbeddingProvider
 from uuid import uuid4
@@ -28,7 +27,6 @@ class VectorDatabase:
         Returns:
             VectorDatabase instance
         """
-        
         uuids = [str(uuid4()) for _ in range(len(chunks))]
         self.__instance.add_documents(chunks, ids=uuids)
         
@@ -40,3 +38,19 @@ class VectorDatabase:
         """
         self.__instance.reset_collection()
         
+    def get_retriever(self, method: str, top_k: int):
+        """Derives a retriever from the vector store with specified search method and top_k.
+
+        Args:
+            method (str): The search method.
+            top_k (int): The amount of neighbours to retrieve.
+
+        Returns:
+            Returns a runnable retriever object.
+        """
+        return self.__instance.as_retriever(
+            search_type=method,
+            search_kwargs={
+                "k":top_k
+            }
+        )
