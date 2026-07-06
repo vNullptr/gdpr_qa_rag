@@ -8,7 +8,7 @@ class QueryPipeline:
         pass
     
     @traceable(name="Pipeline Answer")
-    def answer(self, qst)-> dict:
+    def query(self, query)-> dict:
         """Answers a question based on documents
         
         Returns:
