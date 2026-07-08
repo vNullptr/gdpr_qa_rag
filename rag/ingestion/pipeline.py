@@ -33,7 +33,7 @@ class IngestionPipeline:
         vector_db.reset()
         vector_db.add(documents)
         
-        return "Documents will be ingested !"
+        return documents
     
     def chunk(self, articles: list[dict]):
         """chunks a list of articles.
