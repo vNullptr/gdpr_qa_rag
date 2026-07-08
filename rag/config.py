@@ -24,6 +24,9 @@ class Settings(BaseSettings):
     # CHROMA
     CHROMA_COLLECTION_NAME: str
     
+    # RETRIEVAL
+    TOP_K: int
+    SEARCH_METHOD: str
     
     model_config = SettingsConfigDict(env_file=".env", extra="ignore")
     
