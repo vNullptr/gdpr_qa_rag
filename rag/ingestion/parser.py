@@ -22,7 +22,7 @@ class GDPRHTMLParser:
         return None
 
     @staticmethod
-    def __classify(text: str):
+    def classify(text: str):
         """Classifies the text (html content) from GDPR document
 
         Args:
@@ -63,7 +63,7 @@ class GDPRHTMLParser:
 
         for p in self.document.find_all(name=["p", "span"], class_=["oj-doc-ti", "oj-normal", "oj-ti-art", "oj-sti-art", "oj-ti-section-1", "oj-ti-section-2"]):
             inner = unicodedata.normalize("NFKC", p.get_text().strip())
-            kind, val = self.__classify(inner)      
+            kind, val = self.classify(inner)      
             
             if expecting is not None:
                 metadata[expecting] = inner
