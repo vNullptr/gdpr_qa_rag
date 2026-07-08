@@ -1,5 +1,4 @@
 from langsmith import traceable
-from langsmith.wrappers import wrap_openai
 from langchain_core.runnables import RunnablePassthrough
 from langchain_core.output_parsers import StrOutputParser
 from rag.shared.vector_database import VectorDatabase
