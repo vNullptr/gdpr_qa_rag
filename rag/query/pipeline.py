@@ -18,10 +18,10 @@ class QueryPipeline:
     
     @traceable(name="Pipeline Answer")
     def query(self, query: str)-> dict:
-        """Answers a question based on documents
+        """Answers a question based on documents.
         
         Returns:
-            A tuple (string answer, citations) representing what the llm answered based on retrieved documents.
+            A dictionary (string answer, list references) representing what the llm answered based on retrieved documents.
         """
         
         vector_db = VectorDatabase()
