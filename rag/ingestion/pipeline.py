@@ -50,7 +50,7 @@ class IngestionPipeline:
             model_name=self.settings.EMBEDDING_MODEL,
             chunk_size=self.settings.CHUNK_SIZE,
             chunk_overlap=self.settings.CHUNK_OVERLAP,
-            separators=["\n"]
+            separators=["\n\n", "\n", ". ", " ", ""]
         )
         
         chunks = []
