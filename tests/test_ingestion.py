@@ -1,8 +1,5 @@
 import pytest
 from rag.ingestion.pipeline import IngestionPipeline, GDPRHTMLParser
-
-#ig_pipeline = IngestionPipeline("./documents/eu_gdpr.html")
-
 def test_parser_classifier():
     assert GDPRHTMLParser.classify("Article 16") == ("article", "16")
     assert GDPRHTMLParser.classify("CHAPTER III") == ("chapter", "III")
@@ -16,7 +13,12 @@ def articles():
         result = parser.parse()
         
         return result.articles
-    
+
+@pytest.fixture
+def pipeline():
+    return IngestionPipeline("tests/fixtures/sample.html")
+
+
 def test_parser_count(articles): 
     assert len(articles) == 4
     
@@ -26,3 +28,14 @@ def test_parser_metadata(articles):
 def test_parser_new_chapter(articles):    
     ch2_article = next(a for a in articles if a["metadata"]["chapter"] == "II")
     assert ch2_article["metadata"]["section"] is None
+    
+def test_parser_art_title(articles):
+    assert articles[0]["metadata"]["article_title"] == "Subject-matter and objectives"
+
+def test_parser_chap_titl(articles):
+    assert articles[0]["metadata"]["chapter_title"] == "General provisions"
+    
+def test_chunker_symbol(pipeline):
+    chunks = pipeline.chunk([{"text":"This Regulation applies to the processing of \npersonal data wholly or partly by automated means.","metadata":{}}])
+    
+    assert len(chunks) == 1
