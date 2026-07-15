@@ -17,6 +17,8 @@ class Settings(BaseSettings):
     # CONFIG
     MODEL_NAME: str
     EMBEDDING_MODEL: str
+    TESTSET_MODEL: str
+    CRITIC_MODEL: str
     
     CHUNK_SIZE: int
     CHUNK_OVERLAP: int
