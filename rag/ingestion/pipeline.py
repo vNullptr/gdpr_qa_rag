@@ -27,7 +27,7 @@ class IngestionPipeline:
         
         chunks = self.chunk(parser.articles)
         
-        documents = [Document(page_content=chunk["text"], metadata=chunk["metadata"]) for chunk in chunks]
+        documents = [Document(**chunk) for chunk in chunks]
         
         vector_db = VectorDatabase()
         vector_db.reset()
@@ -56,8 +56,8 @@ class IngestionPipeline:
         chunks = []
         for article in articles:
             chunk = {"metadata":article["metadata"]}
-            for text_chunk in splitter.split_text(article["text"]):
-                chunk["text"] = text_chunk
+            for text_chunk in splitter.split_text(article["page_content"]):
+                chunk["page_content"] = text_chunk
                 chunks.append(chunk.copy())
         
         return chunks

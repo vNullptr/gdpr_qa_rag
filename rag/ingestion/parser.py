@@ -19,7 +19,7 @@ class GDPRHTMLParser:
             return self.__articles
 
         raise RuntimeError("GDPRHTMLParser -> call parse()")
-        return None
+
 
     @staticmethod
     def classify(text: str):
@@ -59,7 +59,7 @@ class GDPRHTMLParser:
 
         def flush():
             if current is not None:
-                articles.append({"text": text, "metadata": metadata.copy()})
+                articles.append({"page_content": text, "metadata": metadata.copy()})
 
         for p in self.document.find_all(name=["p", "span"], class_=["oj-doc-ti", "oj-normal", "oj-ti-art", "oj-sti-art", "oj-ti-section-1", "oj-ti-section-2"]):
             inner = unicodedata.normalize("NFKC", p.get_text().strip())
